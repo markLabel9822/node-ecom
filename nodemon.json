@@ -1,0 +1,6 @@
+{
+    "wath":["src"],
+    "ext":".js,.ts",
+    "exec":"npx ts-node ./src/index.ts"
+
+}
