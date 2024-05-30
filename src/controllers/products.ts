@@ -67,3 +67,26 @@ export const getProductBtId = async (req: Request, res:Response) => {
     }
     
 }
+
+export const searchProducts = async (req : Request, res: Response)  => {
+    const query = req.body.search?.toString() || '';
+
+   
+    if (query === '') {
+      const products = await prismaClient.product.findMany();
+      return res.json(products);
+    }
+  
+    const products = await prismaClient.product.findMany({
+      where: {
+        OR: [
+          { name: { contains: query, mode: 'insensitive' } },
+          { description: { contains: query, mode: 'insensitive' } },
+          { tags: { contains: query, mode: 'insensitive' } }
+        ]
+      }
+    });
+  
+    res.json(products);
+
+}

@@ -37,7 +37,7 @@ export const signup = async (req: AuthenticatedRequest, res: Response, next: Nex
 
         res.json(user);
     } catch (error) {
-       console.log('error test')
+       console.log(error)
     }
 };
 

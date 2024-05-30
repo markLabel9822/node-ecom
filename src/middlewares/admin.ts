@@ -8,7 +8,7 @@ export interface AuthenticatedRequest extends Request {
 
 const authMiddleware = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     const user = req.user
-    if(user.role == 'ADMIN'){
+    if(user.Role == 'ADMIN'){
         next()
     }
     else {

@@ -10,11 +10,14 @@ export const SignUpSchema = z.object({
 export const AddressSchema = z.object({
    lineOne: z.string(),
    lineTwo: z.string().nullable(),
-   pincode: z.string().length(6),
+   pincode: z.string().length(6), //เรากำหนดไว้ 6 ตัว
    country: z.string(),
    city: z.string(),
+   userId :  z.number(),
 
 })
+
+
 
 export const updateUserSchema = z.object({
     name: z.string().optional(),
